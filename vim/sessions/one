@@ -1,0 +1,355 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <C-Tab> 	
+inoremap <silent> <Plug>NERDCommenterInsert  <BS>:call NERDComment('i', "insert")
+imap <S-Tab> <Plug>SuperTabBackward
+vnoremap  "*y
+vnoremap  ^
+nnoremap  ^
+nnoremap 	 i	l
+vnoremap <NL> jjjj
+nnoremap <NL> jjjj
+vnoremap  kkkk
+nnoremap  kkkk
+vnoremap  $
+nnoremap  $
+nnoremap  "*P
+vnoremap  "*p
+vnoremap  u
+nnoremap  u
+nnoremap   i l
+vnoremap ' `
+nnoremap ' `
+nnoremap <silent> ,<S-Down> :BuffergatorMruCycleNext rightbelow sbuffer
+nnoremap <silent> ,<S-Right> :BuffergatorMruCycleNext rightbelow vert sbuffer
+nnoremap <silent> ,<S-Up> :BuffergatorMruCycleNext leftabove sbuffer
+nnoremap <silent> ,<S-Left> :BuffergatorMruCycleNext leftabove vert sbuffer
+nnoremap <silent> ,<Down> :BuffergatorMruCyclePrev rightbelow sbuffer
+nnoremap <silent> ,<Right> :BuffergatorMruCyclePrev rightbelow vert sbuffer
+nnoremap <silent> ,<Up> :BuffergatorMruCyclePrev leftabove sbuffer
+nnoremap <silent> ,<Left> :BuffergatorMruCyclePrev leftabove vert sbuffer
+nnoremap <silent> ,T :BuffergatorTabsClose
+nnoremap <silent> ,tc :BuffergatorTabsClose
+nnoremap <silent> ,to :BuffergatorTabsOpen
+nnoremap <silent> ,t :BuffergatorTabsOpen
+nnoremap <silent> ,B :BuffergatorClose
+nmap ,ca <Plug>NERDCommenterAltDelims
+xmap ,cu <Plug>NERDCommenterUncomment
+nmap ,cu <Plug>NERDCommenterUncomment
+xmap ,cb <Plug>NERDCommenterAlignBoth
+nmap ,cb <Plug>NERDCommenterAlignBoth
+xmap ,cl <Plug>NERDCommenterAlignLeft
+nmap ,cl <Plug>NERDCommenterAlignLeft
+nmap ,cA <Plug>NERDCommenterAppend
+xmap ,cy <Plug>NERDCommenterYank
+nmap ,cy <Plug>NERDCommenterYank
+xmap ,cs <Plug>NERDCommenterSexy
+nmap ,cs <Plug>NERDCommenterSexy
+xmap ,ci <Plug>NERDCommenterInvert
+nmap ,ci <Plug>NERDCommenterInvert
+nmap ,c$ <Plug>NERDCommenterToEOL
+xmap ,cn <Plug>NERDCommenterNested
+nmap ,cn <Plug>NERDCommenterNested
+xmap ,cm <Plug>NERDCommenterMinimal
+nmap ,cm <Plug>NERDCommenterMinimal
+xmap ,c  <Plug>NERDCommenterToggle
+nmap ,c  <Plug>NERDCommenterToggle
+xmap ,cc <Plug>NERDCommenterComment
+nnoremap ,a @:
+nnoremap ,g :let &background = ( &background == "dark"? "light" : "dark" )
+nnoremap <silent> ,b :BuffergatorOpen
+snoremap ,cc :call NERDComment(0,"toggle")
+nmap ,cc <Plug>NERDCommenterComment
+nnoremap ,r :NERDTreeToggle
+noremap ,m :!./make.sh || make
+vnoremap ,s "hy:,$s/h//gc<Left><Left><Left>
+nnoremap ,s :,$s/\<\>/
+vnoremap ,E :SyntasticToggleMode
+vnoremap ,e :SyntasticCheck
+nnoremap ,E :SyntasticToggleMode
+nnoremap ,e :SyntasticCheck
+nnoremap ,dgl :diffg LO
+nnoremap ,dgb :diffg BA
+nnoremap ,dgr :diffg RE
+nnoremap ,ga :!git add %
+nnoremap ,  :nohlsearch
+nnoremap ,zv :source ~/.vimrc
+nnoremap ,ev :sp ~/.vimrc
+vnoremap ,q :q
+nnoremap ,q :q
+vnoremap ,W :w
+vnoremap ,w :w
+nnoremap ,W :w
+nnoremap ,w :w
+nnoremap ,v 
+vnoremap H b
+nnoremap H b
+vnoremap J 
+nnoremap J 
+vnoremap K 
+nnoremap K 
+vnoremap L e
+nnoremap L e
+nnoremap O O
+xmap S <Plug>VSurround
+nnoremap S :exec "normal vS".nr2char(getchar())."\e"
+vmap [% [%m'gv``
+nnoremap <silent> [f :call search('\(\(if\|for\|while\|switch\|catch\)\_s*\)\@64<!(\_[^)]*)\_[^;{}()]*\zs{', "bw")
+nnoremap [l :call WrapCommand('up', 'l')
+vmap ]% ]%m'gv``
+nnoremap <silent> ]f :call search('\(\(if\|for\|while\|switch\|catch\)\_s*\)\@64<!(\_[^)]*)\_[^;{}()]*\zs{',"w")
+nnoremap ]l :call WrapCommand('down', 'l')
+vmap a% [%v]%
+nmap cS <Plug>CSurround
+nmap cs <Plug>Csurround
+nmap ds <Plug>Dsurround
+vmap gx <Plug>NetrwBrowseXVis
+nmap gx <Plug>NetrwBrowseX
+xmap gS <Plug>VgSurround
+nnoremap <silent> gB :BuffergatorMruCycleNext
+nnoremap <silent> gb :BuffergatorMruCyclePrev
+vnoremap j gj
+nnoremap j gj
+vnoremap k gk
+nnoremap k gk
+nnoremap o o
+nnoremap p \"ap
+vnoremap p \"ap
+nnoremap s :exec "normal i".nr2char(getchar())."\e"
+nnoremap wp viw"rp
+nnoremap wy "ryiwmy
+nnoremap w' :wincmd =
+nnoremap w; :wincmd _
+nnoremap wl :wincmd l
+nnoremap wk :wincmd k
+nnoremap wj :wincmd j
+nnoremap wh :wincmd h
+nmap ySS <Plug>YSsurround
+nmap ySs <Plug>YSsurround
+nmap yss <Plug>Yssurround
+nmap yS <Plug>YSurround
+nmap ys <Plug>Ysurround
+nnoremap y \"ay
+vnoremap y ygvmy
+vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
+nnoremap <silent> <Plug>SurroundRepeat .
+xnoremap <silent> <Plug>NERDCommenterUncomment :call NERDComment("x", "Uncomment")
+nnoremap <silent> <Plug>NERDCommenterUncomment :call NERDComment("n", "Uncomment")
+xnoremap <silent> <Plug>NERDCommenterAlignBoth :call NERDComment("x", "AlignBoth")
+nnoremap <silent> <Plug>NERDCommenterAlignBoth :call NERDComment("n", "AlignBoth")
+xnoremap <silent> <Plug>NERDCommenterAlignLeft :call NERDComment("x", "AlignLeft")
+nnoremap <silent> <Plug>NERDCommenterAlignLeft :call NERDComment("n", "AlignLeft")
+nnoremap <silent> <Plug>NERDCommenterAppend :call NERDComment("n", "Append")
+xnoremap <silent> <Plug>NERDCommenterYank :call NERDComment("x", "Yank")
+nnoremap <silent> <Plug>NERDCommenterYank :call NERDComment("n", "Yank")
+xnoremap <silent> <Plug>NERDCommenterSexy :call NERDComment("x", "Sexy")
+nnoremap <silent> <Plug>NERDCommenterSexy :call NERDComment("n", "Sexy")
+xnoremap <silent> <Plug>NERDCommenterInvert :call NERDComment("x", "Invert")
+nnoremap <silent> <Plug>NERDCommenterInvert :call NERDComment("n", "Invert")
+nnoremap <silent> <Plug>NERDCommenterToEOL :call NERDComment("n", "ToEOL")
+xnoremap <silent> <Plug>NERDCommenterNested :call NERDComment("x", "Nested")
+nnoremap <silent> <Plug>NERDCommenterNested :call NERDComment("n", "Nested")
+xnoremap <silent> <Plug>NERDCommenterMinimal :call NERDComment("x", "Minimal")
+nnoremap <silent> <Plug>NERDCommenterMinimal :call NERDComment("n", "Minimal")
+xnoremap <silent> <Plug>NERDCommenterToggle :call NERDComment("x", "Toggle")
+nnoremap <silent> <Plug>NERDCommenterToggle :call NERDComment("n", "Toggle")
+xnoremap <silent> <Plug>NERDCommenterComment :call NERDComment("x", "Comment")
+nnoremap <silent> <Plug>NERDCommenterComment :call NERDComment("n", "Comment")
+nnoremap <BS> i<BS>l
+imap S <Plug>ISurround
+imap s <Plug>Isurround
+imap 	 <Plug>SuperTabForward
+inoremap <expr>  pumvisible() ? "\" : ""
+imap  <Plug>Isurround
+inoremap  "*P`]a
+inoremap  ua
+inoremap ,cc :call NERDComment(0,"toggle")
+inoremap ,E :SyntasticToggleMode
+inoremap ,e :SyntasticCheck 
+inoremap ,q :q
+inoremap ,W :w
+inoremap ,w :w
+nnoremap <silent> Â :BuffergatorMruCycleNext
+nnoremap <silent> â :BuffergatorMruCyclePrev
+inoremap Jk 
+inoremap JK 
+inoremap jK 
+inoremap jk 
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autoindent
+set autoread
+set backspace=indent,eol,start
+set expandtab
+set fileencodings=ucs-bom,utf-8,default,latin1
+set guioptions=aegirLt
+set helplang=en
+set hlsearch
+set incsearch
+set lazyredraw
+set nomodeline
+set mouse=a
+set printoptions=paper:a4
+set ruler
+set runtimepath=~/.vim,~/.vim/bundle/matchit,~/.vim/bundle/nerdcommenter,~/.vim/bundle/nerdtree,~/.vim/bundle/supertab,~/.vim/bundle/syntastic,~/.vim/bundle/vim-buffergator,~/.vim/bundle/vim-colors-solarized,~/.vim/bundle/vim-one,~/.vim/bundle/vim-surround,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim74,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
+set shiftwidth=2
+set showcmd
+set softtabstop=2
+set statusline=%#warningmsg#%{SyntasticStatuslineFlag()}%*%F
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set tabstop=2
+set wildmenu
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd /local/gabe1/gabe/gradtest
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +0 llvm-7.0.0.src/projects/compiler-rt/lib/dfsan/dfsan.cc
+badd +44 ~/.vimrc
+argglobal
+silent! argdel *
+argadd .
+edit llvm-7.0.0.src/projects/compiler-rt/lib/dfsan/dfsan.cc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+set cursorline
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'cpp'
+setlocal filetype=cpp
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+set foldlevel=99
+setlocal foldlevel=99
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal nomodeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=ccomplete#Complete
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=2
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'cpp'
+setlocal syntax=cpp
+endif
+setlocal tabstop=2
+setlocal tagcase=
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 44 - ((13 * winheight(0) + 30) / 61)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+44
+normal! 0
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
